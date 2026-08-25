@@ -8,12 +8,11 @@ st.write(
   """Choose the fruits you want in your custom Smoothie!
   """)
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-# st.dataframe(data=my_dataframe, use_container_width=True)
-
 cnx = st.connection("snowflake")
 session = cnx.session()
-import streamlit as st
+
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+# st.dataframe(data=my_dataframe, use_container_width=True)
 
 name_on_order = st.text_input("Name on Smoothie:")
 
